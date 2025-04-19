@@ -1,7 +1,5 @@
 package aufgabenblatt1;
 
-import util.Util;
-
 public class ArrayTester {
     public static final void main(String[] args){
         int num = 0;

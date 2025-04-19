@@ -1,4 +1,4 @@
-package util;
+package aufgabenblatt1;
 /**
  * Write a description of class Util here.
  *

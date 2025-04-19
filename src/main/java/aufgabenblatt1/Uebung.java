@@ -1,7 +1,5 @@
 package aufgabenblatt1;
 
-import util.Util;
-
 public class Uebung {
 
     public static void main(String[] args) {

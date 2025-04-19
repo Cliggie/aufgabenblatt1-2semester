@@ -1,7 +1,5 @@
 package aufgabenblatt1;
 
-import util.Util;
-
 public class GuessTester {
     public static void main(String[] args) {
         Util util = new Util();
