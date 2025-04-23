@@ -1,57 +1,36 @@
 package aufgabenblatt1;
 
-import java.util.Arrays;
-
 public class AnagramChecker {
-    private String word1,word2;
-    public AnagramChecker(String word1,String word2){
-       this.word1 = word1;
-       this.word2 = word2;
+    private String word1, word2;
 
+    public AnagramChecker(String word1, String word2) {
+        this.word1 = word1.toLowerCase().replaceAll(" ", "");
+        this.word2 = word2.toLowerCase().replaceAll(" ", "");
     }
-    public void isAnagram(){
-        word1 = word1.toLowerCase();
-        word2 = word2.toLowerCase();
-        char[] buchstaben1 = word1.toCharArray();
-        char[] buchstaben2 = word2.toCharArray();
 
-        for (char j : buchstaben1)
-        {
+    public void isAnagram() {
+        if (word1.length() != word2.length()) {
+            System.out.println("Kein Anagramm");
+            return;
+        }
 
-            if(!(j ==' ')) {
-                boolean found = false;
+        int[] buchstabenZaehler = new int[26]; // Für a–z
 
-                for (int i = 0; i < buchstaben2.length; i++) {
-                    if (j == buchstaben2[i]) {
-                        found = true;
-                        buchstaben2[i] = '!';
-                        System.out.println(Arrays.toString(buchstaben2));
-                        System.out.println(i);
-                        break;
-                    }
-                }
+        for (char c : word1.toCharArray()) {
+            buchstabenZaehler[c - 'a']++;
+        }
 
-                if (found){
-                    continue;
-                }
+        for (char c : word2.toCharArray()) {
+            buchstabenZaehler[c - 'a']--;
+        }
+
+        for (int count : buchstabenZaehler) {
+            if (count != 0) {
                 System.out.println("Kein Anagramm");
                 return;
             }
-
-
         }
-        for (char l : buchstaben2){
-            if (l != '!' && l!= ' ') {
-                System.out.println("Kein Anagram");
-                return;
-            }
-        }
+
         System.out.println("Anagramm");
-
-
-
-
     }
-
-
 }
